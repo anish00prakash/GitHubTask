@@ -135,7 +135,7 @@ output application/json
 output application/json
 ---
 {
-  message: "Shopping cart was updated"
+  message: "Shopping cart updated"
 }]]></ee:set-payload>
             </ee:message>
         </ee:transform>

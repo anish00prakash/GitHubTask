@@ -1,0 +1,40 @@
+%dw 1.0
+%output application/json
+---
+
+{ 
+	orderConfirmation: using(m = "") payload map ((value,index) ->{
+		
+			
+			order: using(msg = value.orderNumber) {
+				orderNumber: value.orderNumber,
+				orderDate: value.orderDate,
+				quantity: value.totalQuantity,
+				shipmentCosts: value.shipmentCost,
+				Subtotal: value.subtotal,
+				TotalInclVAT: value.total,
+				products: {
+						imageUrl: value.productImageURL,
+						description: value.description,
+						quantity: value.quantity,
+						priceInclVAT: value.productForPrice,
+						linePrice: value.linePrice}
+						} when m == "" and msg != value.orderNumber
+				 otherwise {
+				 	
+					
+						imageUrl: value.productImageURL,
+						description: value.description,
+						quantity: value.quantity,
+						priceInclVAT: value.productForPrice,
+						linePrice: value.linePrice,
+						msg : value.orderNumber
+						 }
+						 
+			
+					}
+					)
+
+				
+			}
+			

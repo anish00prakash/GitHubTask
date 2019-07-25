@@ -256,7 +256,11 @@ output application/json
 output application/json
 ---
 {
+
   message: "Shopping cart was created by abhi"
+
+  message: "Shopping cart was created by bandaNA"
+
 }]]></ee:set-payload>
             </ee:message>
         </ee:transform>
